@@ -1,0 +1,48 @@
+﻿@{
+	ViewBag.Title = "Search words";
+}
+@section featured
+{
+	<section class="featured">
+		<div class="content-wrapper">
+			<hgroup class="title">
+				<h1>@ViewBag.Title.</h1>
+				<h2>Use this form to edit your search words</h2>
+			</hgroup>	
+		</div>
+	</section>
+}
+<table>
+	<thead>
+		<tr>
+			<td>
+				<strong>Word</strong>
+			</td>
+			<td>
+				<strong>Volume</strong>
+			</td>
+		</tr>
+	</thead>
+	<tbody data-bind="foreach: viewModel.words">
+		<tr>
+			<td>
+				<span data-bind="text: Word" class="email" />
+			</td>
+			<td>
+				<span data-bind="text: Volume" />
+			</td>
+		</tr>
+	</tbody>
+</table>
+<form class="cmxform" id="wordform" method="get" action="">
+<div>
+	Word:
+	<input id="txtWord" name="nword" type="text" />&nbsp;Volume:
+	<input id="txtVolume" name="nvolume" type="text" />
+	<input type="button" id="btnNewSearchWord" value="Add search word" />
+</div>
+</form>
+@section scripts
+{
+	@Scripts.Render("~/Scripts/App_Scripts/searchword.js")
+}
