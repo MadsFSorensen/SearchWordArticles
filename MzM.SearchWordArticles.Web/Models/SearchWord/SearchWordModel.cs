@@ -8,6 +8,9 @@ namespace MzM.SearchWordArticles.Web.Models.SearchWord
 		public string Word { get; set; }
 		public int Volume { get; set; }
 		public string Id { get; private set; }
+	    [BsonIgnore]
+        public string Url { get; set; }
+	    public string ArticleId { get; set; }
 
 		public SearchWordModel(string word, int volume)
 		{

@@ -13,7 +13,7 @@ $(document).ready(function () {
 				digits: true
 			}
 		},
-		focusCleanup: true
+        focusCleanup: true
 	});
 
 	ko.applyBindings(viewModel);
@@ -48,9 +48,11 @@ swa.CatchVolumeEnter = function (sender) {
 		if(valid)
 		{
 			swa.PostSearchWord();
-			var validator = $("#wordform").validate();
-			validator.resetForm();
 			$('#txtWord').focus();
+            window.setTimeout(function(){ 
+                var validator = $("#wordform").validate();
+			    validator.resetForm();
+            },100);
 		}
 	}
 };

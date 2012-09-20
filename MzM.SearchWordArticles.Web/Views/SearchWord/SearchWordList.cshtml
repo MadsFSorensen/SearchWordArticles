@@ -21,6 +21,9 @@
 			<td>
 				<strong>Volume</strong>
 			</td>
+			<td>
+				<strong>Article</strong>
+			</td>
 		</tr>
 	</thead>
 	<tbody data-bind="foreach: viewModel.words">
@@ -31,6 +34,9 @@
 			<td>
 				<span data-bind="text: Volume" />
 			</td>
+            <td>
+            <a data-bind="src: Url" ><span data-bind="text: ArticleId"></span></a>
+            </td>
 		</tr>
 	</tbody>
 </table>
