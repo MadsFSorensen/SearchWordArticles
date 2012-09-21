@@ -6,7 +6,7 @@ namespace MzM.SearchWordArticles.Web.Controllers
 	{
 		//
 		// GET: /SearchWord/
-		public ActionResult SearchWordList()
+		public ActionResult List()
 		{
 			return View();
 		}

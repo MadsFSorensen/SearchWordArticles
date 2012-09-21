@@ -127,22 +127,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\ArticleController.cs" />
     <Compile Include="App_Code\MongoProvider.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Api\SearchWordController.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchWordController.cs" />
     <Compile Include="Models\Article\ArticleModel.cs" />
+    <Compile Include="Models\Article\CreateViewModel.cs" />
     <Compile Include="Models\IMongoDBModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Account\RegisterModel.cs" />
-    <Compile Include="Models\Account\ChangePasswordModel.cs" />
-    <Compile Include="Models\Account\LoginModel.cs" />
+    <Compile Include="Models\Account\RegisterViewModel.cs" />
+    <Compile Include="Models\Account\ChangePasswordViewModel.cs" />
+    <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\SearchWord\SearchWordModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -203,6 +206,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\App_Scripts\article.js" />
     <Content Include="Scripts\App_Scripts\searchword.js" />
     <Content Include="Scripts\jquery-1.8.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.8.1.js" />
@@ -265,7 +269,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\SearchWord\SearchWordList.cshtml" />
+    <Content Include="Views\SearchWord\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\MongoDB.Web\MongoDB.Web\MongoDB.Web.csproj">
@@ -274,7 +278,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Article\CreateArticle.cshtml" />
+    <Content Include="Views\Article\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Article\Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

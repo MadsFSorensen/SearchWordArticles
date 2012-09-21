@@ -1,0 +1,28 @@
+﻿@model MzM.SearchWordArticles.Web.Models.Article.ArticleModel
+@{
+	ViewBag.Title = "Edit article";
+}
+@section featured
+{
+	<section class="featured">
+		<div class="content-wrapper">
+			<hgroup class="title">
+				<h1>@ViewBag.Title.</h1>
+				<h2>Use this form to edit an article for the word '@string.Join(", ", Model.SearchWordIds)'</h2>
+			</hgroup>	
+		</div>
+	</section>
+}
+<div>
+	<label id="lblword" class="inputtextwidth">@string.Join(", ", Model.SearchWordIds)</label><input type="button" id="btnScan" value="Scan for word matches"/>
+	<form id="articleform" method="get" action="">
+	<div>
+		<textarea id="txttext" name="ntext" class="ntext inputtextwidth" type="text" rows="10">@Model.Text</textarea>
+	</div>
+	</form>
+	<input type="button" id="btnCreate" value="Update article" data-returnurl="@Url.Action("Edit", "Article")" />
+</div>
+@section scripts
+{
+	@Scripts.Render("~/Scripts/App_Scripts/article.js")
+}

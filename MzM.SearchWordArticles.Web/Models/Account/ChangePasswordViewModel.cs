@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace MzM.SearchWordArticles.Web.Models.Account
 {
-	public class ChangePasswordModel
+	public class ChangePasswordViewModel
 	{
 		[Required]
 		[DataType(DataType.Password)]

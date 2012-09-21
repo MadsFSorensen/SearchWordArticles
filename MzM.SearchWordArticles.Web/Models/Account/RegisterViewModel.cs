@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace MzM.SearchWordArticles.Web.Models.Account
 {
-	public class RegisterModel
+	public class RegisterViewModel
 	{
 		[Required]
 		[Display(Name = "User name")]

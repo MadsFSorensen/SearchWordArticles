@@ -29,7 +29,7 @@ namespace MzM.SearchWordArticles.Web.Controllers
 
 		[AllowAnonymous]
 		[HttpPost]
-		public ActionResult Login(LoginModel model, string returnUrl)
+		public ActionResult Login(LoginViewModel model, string returnUrl)
 		{
 			if (ModelState.IsValid)
 			{
@@ -79,7 +79,7 @@ namespace MzM.SearchWordArticles.Web.Controllers
 
 		[AllowAnonymous]
 		[HttpPost]
-		public ActionResult Register(RegisterModel model)
+		public ActionResult Register(RegisterViewModel model)
 		{
 			if (ModelState.IsValid)
 			{
@@ -114,7 +114,7 @@ namespace MzM.SearchWordArticles.Web.Controllers
 		// POST: /Account/ChangePassword
 
 		[HttpPost]
-		public ActionResult ChangePassword(ChangePasswordModel model)
+		public ActionResult ChangePassword(ChangePasswordViewModel model)
 		{
 			if (ModelState.IsValid)
 			{

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MzM.SearchWordArticles.Web.Models.Account
 {
-	public class LoginModel
+	public class LoginViewModel
 	{
 		[Required]
 		[Display(Name = "User name")]

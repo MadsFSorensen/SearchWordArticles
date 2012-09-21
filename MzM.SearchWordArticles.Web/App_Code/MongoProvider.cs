@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
 using MongoDB.Driver;
+using MzM.SearchWordArticles.Web.Models.Article;
 using MzM.SearchWordArticles.Web.Models.SearchWord;
 
 namespace MzM.SearchWordArticles.Web
@@ -12,7 +13,8 @@ namespace MzM.SearchWordArticles.Web
 		private static readonly NameValueCollection Config = ConfigurationManager.AppSettings;
 		private static readonly Dictionary<Type, string> DatabaseNameMap = new Dictionary<Type, string>
 			{
-				{typeof (SearchWordModel), typeof (SearchWordModel).Name}
+				{typeof (SearchWordModel), typeof (SearchWordModel).Name},
+				{typeof (ArticleModel), typeof (ArticleModel).Name}
 			};
 
 		public static MongoCollection<T> GetCollection<T>()

@@ -10,14 +10,15 @@ namespace MzM.SearchWordArticles.Web.Api
 	public class SearchWordController : ApiController
 	{
 		[AllowAnonymous]
-		public IEnumerable<SearchWordModel> GetSearchWords()
+		public IEnumerable<SearchWordModel> Get()
 		{
 			var searchWords = MongoProvider.GetCollection<SearchWordModel>().FindAll();
-			return searchWords.ToList();
+			return searchWords.OrderBy(s => s.Volume).ToList();
 		}
 
-		public HttpResponseMessage PostSearchWords(SearchWordModel searchWordModel)
+		public HttpResponseMessage Post(SearchWordModel searchWordModel)
 		{
+			searchWordModel = new SearchWordModel(searchWordModel.Word, searchWordModel.Volume);
 			MongoProvider.GetCollection<SearchWordModel>().Save(searchWordModel);
 			var response = Request.CreateResponse<SearchWordModel>(HttpStatusCode.Created, searchWordModel);
 			return response;

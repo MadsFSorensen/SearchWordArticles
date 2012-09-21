@@ -19,14 +19,14 @@ $(document).ready(function () {
 	ko.applyBindings(viewModel);
 	swa.GetSearchWords();
 
-	$('#btnNewSearchWord').click(function (sender) {
-		swa.PostSearchWord(sender);
+	$('#btnNewSearchWord').click(function (event) {
+		swa.PostSearchWord(event);
 	});
-	$('#txtWord').keydown(function (sender) {
-		swa.CatchWordEnter(sender);
+	$('#txtWord').keydown(function (event) {
+		swa.CatchWordEnter(event);
 	});
-	$('#txtVolume').keydown(function (sender) {
-		swa.CatchVolumeEnter(sender);
+	$('#txtVolume').keydown(function (event) {
+		swa.CatchVolumeEnter(event);
 	});
 
 	$('#txtWord').focus();
@@ -34,16 +34,16 @@ $(document).ready(function () {
 });
 
 
-swa.CatchWordEnter = function (sender) {
-	if (sender.keyCode == 13) {
+swa.CatchWordEnter = function (event) {
+	if (event.keyCode == 13) {
 		var valid= $("#wordform").validate().element("#txtWord");
 		if(valid)
 			$('#txtVolume').focus();
 	}
 };
 
-swa.CatchVolumeEnter = function (sender) {
-	if (sender.keyCode == 13) {
+swa.CatchVolumeEnter = function (event) {
+	if (event.keyCode == 13) {
 		var valid = $("#wordform").validate().form();
 		if(valid)
 		{
@@ -60,11 +60,11 @@ swa.CatchVolumeEnter = function (sender) {
 swa.PostSearchWord = function () {
 	var word = $('#txtWord').val();
 	var volume = $('#txtVolume').val();
-	var searchWord = { Word: word, Volume: volume };
+	var model = { Word: word, Volume: volume };
 	$('#txtWord').val('');
 	$('#txtVolume').val('');
 
-	var json = JSON.stringify(searchWord);
+	var json = JSON.stringify(model);
 
 	$.ajax({
 		url: '/api/searchword',

@@ -34,13 +34,15 @@
 			<td>
 				<span data-bind="text: Volume" />
 			</td>
-            <td>
-            <a data-bind="src: Url" ><span data-bind="text: ArticleId"></span></a>
-            </td>
+			<td>
+				<span data-bind="if: !ArticleId"><a data-bind="attr: { 'href': '@Url.Action("Create", "Article")' + '/' +  Word }" >Create</a></span>
+				<span data-bind="if: ArticleId"><a data-bind="attr: { 'href': '@Url.Action("Edit", "Article")' + '/' +  ArticleId }" >Read / Edit</a> </span>
+			</td>
 		</tr>
 	</tbody>
 </table>
-<form class="cmxform" id="wordform" method="get" action="">
+<br/>
+<form id="wordform" method="get" action="">
 <div>
 	Word:
 	<input id="txtWord" name="nword" type="text" />&nbsp;Volume:

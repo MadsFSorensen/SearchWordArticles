@@ -1,20 +1,17 @@
 using System;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace MzM.SearchWordArticles.Web.Models.SearchWord
 {
 	public class SearchWordModel : IMongoDBModel
 	{
-		public string Word { get; set; }
-		public int Volume { get; set; }
 		public string Id { get; private set; }
-	    [BsonIgnore]
-        public string Url { get; set; }
-	    public string ArticleId { get; set; }
+		public string ArticleId { get; set; }
+		public string Word { get; private set; }
+		public int Volume { get; private set; }
 
 		public SearchWordModel(string word, int volume)
 		{
-			Id = Guid.NewGuid().ToString();
+			Id = word.ToLower();
 			Word = word;
 			Volume = volume;
 		}

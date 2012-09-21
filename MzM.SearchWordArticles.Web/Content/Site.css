@@ -376,3 +376,6 @@ input[type="password"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+.inputtextwidth {
+	width: 500px;
+}
